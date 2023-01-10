@@ -6,6 +6,10 @@ import optparse
 #change the mac address
 #check mac address with new mac adress
 
+#debugging notes:
+#   specify 'en0' in place of 'wlan0' for interface; this isn't linux
+#
+
 def get_options():
     parser = optparse.OptionParser()
     parser.add_option("-i", "--interface", dest="interface", help="Enter an interface")
