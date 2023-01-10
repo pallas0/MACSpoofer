@@ -22,5 +22,25 @@ def mac_spoof(interface, mac_add):
     print("[+] Reconnecting " + interface)
     subprocess.run(["ifconfig", interface, "up"])
 
-# def mac_check(interface):
-#     ifconfig = re.search()
+def mac_check(interface):
+    # checking ifconfig interface for validity (like lo interfaces etc...)
+    options = get_options()
+    ifconfig = subprocess.check_output(["ifconfig", options.interface])
+    current_mac = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig))
+
+    if current_mac.group(0) == options.new_mac:
+        return current_mac.group(0)
+    else:
+        print("[-] Error reading MAC address")
+
+
+options = get_options()
+
+print("[+] "+options.interface+" MAC address :"+ mac_check(options.interface))
+
+mac_spoof(options.interface, options.new_mac)
+
+if mac_check(options.interface) == options.new_mac:
+    print("[+] ", options.interface + " MAC address has been spoofed")
+else:
+    print("[-] "+ options.interface + " MAC address Spoofing has failed =(")
