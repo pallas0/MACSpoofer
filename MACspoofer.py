@@ -7,13 +7,13 @@ import optparse
 #check mac address with new mac adress
 
 #debugging notes:
-#   specify 'en0' in place of 'wlan0' for interface; this isn't linux
+#   specify 'en0' in place of 'wlan0' for interface - this isn't linux
 #
 
 def get_options():
     parser = optparse.OptionParser()
     parser.add_option("-i", "--interface", dest="interface", help="Enter an interface")
-    parser.add_option("-m","--mac", help="Enter New MAC address")
+    parser.add_option("-m","--mac", dest="new_mac", help="Enter New MAC address")
     (options, args) = parser.parse_args()
 
     return options
@@ -28,7 +28,7 @@ def mac_spoof(interface, mac_add):
 
 def mac_check(interface):
     # checking ifconfig interface for validity (like lo interfaces etc...)
-    options = get_options()
+    #options = get_options()
     ifconfig = subprocess.check_output(["ifconfig", options.interface])
     current_mac = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig))
 
@@ -40,7 +40,7 @@ def mac_check(interface):
 
 options = get_options()
 
-print("[+] "+options.interface+" MAC address :"+ mac_check(options.interface))
+print("[+] "+options.interface+" MAC address :"+ str(mac_check(options.interface)))
 
 mac_spoof(options.interface, options.new_mac)
 
