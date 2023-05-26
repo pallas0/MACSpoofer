@@ -2,7 +2,7 @@
 
 # MAC Spoofer
 
-This is a simple MAC spoofer program written in Python. It allows you to change the MAC address of a network interface on your computer.
+This is a simple MAC spoofer program written in Python. It allows you to change the MAC (media access card) address of a network interface on your computer.  I built this to get around pay walls that track visits through server-side tracking, where deleting cookies wouldn't be enough.  It should provide increased internet anonymity without the hassle and cost of a VPN.
 
 ## Requirements
 
