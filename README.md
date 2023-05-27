@@ -12,6 +12,10 @@ This program requires Python 3 and the optparse module. If you don't have optpar
 pip install optparse
 ```
 
+Here's what the program should look like when running and checking options:
+<img width="551" alt="Screenshot 2023-05-26 at 4 07 08 PM" src="https://github.com/pallas0/MACSpoofer/assets/52135849/d06089c8-7127-4e5e-8839-4d1c204ff2d9">
+
+
 ## Usage
 
 To run the program, open a terminal and navigate to the directory where the program is located. Then, run the following command:
@@ -21,6 +25,8 @@ sudo python3 MACspoofer.py -i [interface] -m [new MAC address]
 ```
 
 Replace `[interface]` with the name of the network interface you want to spoof (e.g. en0 on macOS or eth0 on Linux), and replace `[new MAC address]` with the MAC address you want to use.
+
+
 
 ## Example
 
